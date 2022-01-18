@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#tong{
+			margin: 0 auto;
+			background-color: #b3ffe0;
+			width: 600px;
+			height: 500px;
+		}
+		.tren{
+			color: #0044cc;
+			width: 300px;
+			height: 100px;
+			padding: 10px;
+		}
+		.duoi{
+			background-color: #b3ffe0;
+			width: 100%;
+			height: 90%;
+		}
+		.duoi input{
+			width: 200px;
+		}
+		.duoi input:hover{
+			background-color: yellow;
+		}
+		.duoi select:hover{
+			background-color: yellow;
+		}
+		.duoi table{
+			width: 95%;
+		}
+		.duoi button{
+
+		}
+	</style>
+</head>
+<body>
+	<div id="tong">
+		<div class="tren">
+			<p style="font-size: 25px; font-weight: bold;border: 2px solid #99bbff;background-color: #99ccff;">Purchase Order Form</p>
+		</div>
+		<div class="duoi">
+		<form method="post">
+				<fieldset>
+					<legend>Product Information</legend>
+					<div>
+						<table border="1" cellpadding="2" style="border-color: blue;">
+						<tr>
+						<th>Product:</th>
+						<td>
+							<select required id="product_id" onchange="selectProduct()">
+								<option value="">Select</option>
+								<option value="650">Comfort Sleeper</option>
+								<option value="975">Morgan Kids Bed</option>
+								<option value="480">Entertainment Cabinet</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Unit Price($):</th>
+						<td>
+							<input disabled required type="Number" name="unitPrice" id="unit_price_id" onkeyup="updateToTalPrice()">
+						</td>
+					</tr>
+					<tr>
+						<th>Quantity:</th>
+						<td>
+							<input disabled required type="Number" name="quantity" id="quantity_id" onkeyup="updateToTalPrice()">
+						</td>
+					</tr>
+					<tr>
+						<th>Total Price($):</th>
+						<td>
+							<input disabled required type="Number" name="totalPrice" id="total_price_id">
+						</td>
+					</tr>
+					</table>
+					</fieldset>
+					<fieldset>
+					<legend>Shipping Information</legend>
+					<div>
+						<table border="1" cellpadding="2" style="border-color: blue;">
+						
+					<tr>
+						<th>Full Name:</th>
+						<td>
+							<input required type="text" name="fullName" id="full_name_id">
+						</td>
+					</tr>
+					<tr>
+						<th>Shipping Address:</th>
+						<td>
+							<input required type="text" name="shippingAddress" id="address_id">
+						</td>
+					</tr>
+					<tr>
+						<th>credit Card:</th>
+						<td>
+							<select required name="creditCard" id="credit_card_id">
+								<option value="">Select</option>
+								<option value="650">VISA</option>
+								<option value="975">Master Card</option>
+								<option value="480">American Express</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>Credit Card Number:</th>
+						<td>
+							<input required type="text" name="creditCardNumber" id="credit_card_number_id">
+						</td>
+					</tr>
+					</table>
+					</fieldset>
+					    <button style="margin-left: 250px;" type="submitfull_name_id">Submit</button>
+						<button type="reset">Reset</button>
+			    </form>
+			    <script type="text/javascript">
+			    	var productTag = document.getElementsById('product_id')
+			    	var unitPriceTag = document.getElementsById('unit_price_id')
+			    	var quantityTag = document.getElementsById('quantity_id')
+			    	var totalPriceTag = document.getElementsById('total_price_id')
+			    	var fullNameTag = document.getElementsById('full_name_id')
+			    	var shippingAddressTag = document.getElementsById('address_id')
+			    	var creditCardTag = document.getElementsById('credit_card_id')
+			    	var creditCardNumberTag = document.getElementsById('credit_card_number_id')
+
+			    	function selectProduct() {
+			    		product = productTag.value
+			    		if(product == ''){
+			    			unitpriceTag.disabled = true
+			    			quantityTag.disabled = true
+			    		}else{
+			    			unitpriceTag.disabled = false
+			    			quantityTag.disabled = false
+			    		}
+			    	}
+			    	function updateToTalPrice() {
+			    		unitPrice = unitPriceTag.value
+			    		quantity = quantityTag.value
+
+			    		totalPriceTag.value = unitPrice.quantity
+			    	}
+			    </script>
+		    </div>
+		</div>
+	</div>
+</body>
+</html>
